@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Logo from '@/app/ui/logo/logo';
-import { Navigation, MenuButton, MobileMenu } from '@/app/ui/ui';
+import { Navigation, MenuButton, MobileMenu, Filters } from '@/app/ui/ui';
 
 const Header = () => {
   return (
@@ -19,6 +19,7 @@ const Header = () => {
 
         <div className="divider h-px w-full bg-grayscale-300"></div>
       </header>{' '}
+      <Filters />
       <MobileMenu />
     </div>
   );
