@@ -17,3 +17,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .main-container {
+    @apply px-4 md:px-10 lg:px-14;
+  }
+}
