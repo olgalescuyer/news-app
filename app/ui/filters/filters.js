@@ -1,0 +1,35 @@
+import { ChevronDownIcon, CalendarIcon } from '@/app/icons/icons';
+
+const Filters = () => {
+  return (
+    <div className="flex items-center space-x-1.5">
+      <button className="sort-by-date">
+        <div className="chips">
+          <span> date</span>
+
+          <CalendarIcon variant="size-5 " />
+        </div>
+      </button>
+
+      <div className="vertical-divider w-px h-8 bg-grayscale-300"></div>
+
+      <div className="flex space-x-3 my-3">
+        {[
+          ['country', 1],
+          ['language', 2],
+          ['source', 3],
+        ].map(([label, i], index) => (
+          <button key={i} className="">
+            <div className="chips">
+              <span> {label}</span>
+
+              <ChevronDownIcon variant="size-5 mt-1" />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Filters;
