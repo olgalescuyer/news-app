@@ -20,3 +20,27 @@ export const formatDateAgo = (dateString) => {
 
   return formattedDate;
 };
+
+export function getDateOneMonthAgo() {
+  const today = new Date();
+  const oneMonthAgo = new Date(
+    today.getFullYear(),
+    today.getMonth() - 1,
+    today.getDate()
+  );
+  return oneMonthAgo.toISOString().slice(0, 10);
+}
+
+export function removeMarkdown(markdownString) {
+  // Regular expression to match Markdown syntax
+  const markdownRegex = /(\[.*?\])|(\*\*|__|\*|_|\~|\`)/g;
+  // Replace Markdown syntax with an empty string
+  return markdownString.replace(markdownRegex, '');
+}
+
+export function containsMarkdown(markdownString) {
+  // Regular expression to detect Markdown syntax
+  const markdownRegex = /(\[.*?\])|(\*\*|__|\*|_|\~|\`)/g;
+  // Check if the string contains Markdown syntax
+  return markdownRegex.test(markdownString);
+}

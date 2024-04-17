@@ -7,6 +7,7 @@ import Filters from './filters/filters';
 import Search from './search/search';
 import SearchButton from './search-button/search-button';
 import LatestNews from './latest-news/latest-news';
+import NewsImage from './news-image/news-image';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   Search,
   SearchButton,
   LatestNews,
+  NewsImage,
 };
