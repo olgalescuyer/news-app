@@ -21,7 +21,7 @@ const Filters = () => {
           ['source', 3],
         ].map(([label, i], index) => (
           <button key={i} className="">
-            <div className="chips">
+            <div className="chips flex items-center space-x-1 bg-light">
               <span> {label}</span>
 
               <ChevronDownIcon variant="size-5 mt-1" />
