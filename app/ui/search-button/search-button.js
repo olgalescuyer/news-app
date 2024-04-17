@@ -5,11 +5,12 @@ import { SearchIcon, CloseIcon } from '@/app/icons/icons';
 
 import { useAppContext } from '@/app/providers/AppWrapper';
 
-const SearchButton = ({ className }) => {
+const SearchButton = ({ className, label }) => {
   const { showSearch, handleShowSearch } = useAppContext();
 
   return (
     <button onClick={handleShowSearch} className={twMerge('', className)}>
+      {label ? <span>{label}</span> : false}
       {showSearch ? (
         <CloseIcon variant="size-6" />
       ) : (

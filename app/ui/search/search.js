@@ -1,7 +1,8 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
+import { cva } from 'class-variance-authority';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP);
@@ -11,14 +12,25 @@ import { SearchIcon } from '@/app/icons/icons';
 
 import { useAppContext } from '@/app/providers/AppWrapper';
 
-const Search = ({ className }) => {
+const search = cva([''], {
+  variants: {
+    intent: {
+      desktop: [
+        'pl-4 md:pl-10 lg:pl-14 overlay  absolute bottom-0 left-0 z-50 w-[calc(100%-130px)]  my-3',
+      ],
+      mobile: [' w-full overlay'],
+    },
+  },
+});
+
+const Search = ({ className, intent }) => {
   const a_search_container = useRef();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const { showSearch, handleShowSearch } = useAppContext();
-  console.log(showSearch);
+  // console.log(showSearch);
 
   const handleSearch = (value) => {
     console.log(`Searching... ${value}`);
@@ -58,9 +70,9 @@ const Search = ({ className }) => {
       role="dialog"
       aria-modal="true"
       ref={a_search_container}
-      className="search-bar hidden lg:block"
+      className={twMerge('search-bar', className)}
     >
-      <div className="pl-4 md:pl-10 lg:pl-14 overlay absolute z-50 w-[calc(100%-130px)] bottom-0 left-0 my-3">
+      <div className={twMerge(search({ intent }))}>
         <div className="relative flex flex-1 flex-shrink-0 transition-all duration-1000 ">
           <label htmlFor="search" className="sr-only">
             Search

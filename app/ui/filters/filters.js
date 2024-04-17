@@ -3,7 +3,7 @@ import { ChevronDownIcon, CalendarIcon } from '@/app/icons/icons';
 
 const Filters = () => {
   return (
-    <div className="filters flex items-center space-x-1.5 mt-3 mb-4">
+    <div className="filters flex items-center space-x-1.5 ">
       <button className="sort-by-date">
         <div className="chips">
           <span> date</span>

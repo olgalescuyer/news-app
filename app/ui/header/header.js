@@ -12,7 +12,7 @@ import { SearchIcon } from '@/app/icons/icons';
 
 const Header = () => {
   return (
-    <div className="fixed top-0 left-0 z-30 w-full  bg-light flex flex-col">
+    <div className="fixed top-0 left-0 z-30 w-full   flex flex-col">
       <div className="main-container relative ">
         <header className="z-40 pt-2 md:pt-4 lg:pt-6 ">
           <div className="flex justify-between lg:justify-normal items-end mb-2">
@@ -27,11 +27,18 @@ const Header = () => {
 
           <div className="divider h-px w-full bg-grayscale-300"></div>
         </header>{' '}
-        <div className="flex justify-between items-center">
-          <Filters />
-          <SearchButton />
+        <div className="relative">
+          <div className="flex justify-between items-center">
+            <div className="overflow-x-auto flex items-center space-x-3 mt-3 mb-4 relative">
+              {/* <SearchButton className=" lg:hidden flex chips" label="search" /> */}
+              <Filters />
+            </div>
+
+            <SearchButton className=" hidden lg:block" />
+          </div>
         </div>
-        <Search className=" " />
+        <Search className="hidden lg:block " intent="desktop" />
+        {/* <Search className=" lg:hidden" intent="mobile" /> */}
         <MenuMobile />
       </div>
     </div>
