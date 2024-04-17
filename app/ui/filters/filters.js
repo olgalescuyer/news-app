@@ -1,8 +1,9 @@
 import { ChevronDownIcon, CalendarIcon } from '@/app/icons/icons';
+// https://react-day-picker.js.org/
 
 const Filters = () => {
   return (
-    <div className="flex items-center space-x-1.5">
+    <div className="filters flex items-center space-x-1.5 ">
       <button className="sort-by-date">
         <div className="chips">
           <span> date</span>
@@ -13,7 +14,7 @@ const Filters = () => {
 
       <div className="vertical-divider w-px h-8 bg-grayscale-300"></div>
 
-      <div className="flex space-x-3 my-3">
+      <div className="flex space-x-3 ">
         {[
           ['country', 1],
           ['language', 2],

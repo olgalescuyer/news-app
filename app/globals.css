@@ -16,6 +16,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .overlay {
+    --clip: 0% 0%, 0% 0%, 0% 125%, 0% 100%;
+    clip-path: polygon(var(--clip));
+  }
 }
 
 @layer components {
@@ -24,6 +28,6 @@ body {
   }
 
   .chips {
-    @apply px-4 py-1 border border-grayscale-300 text-primary-dark opacity-70 rounded-full capitalize flex items-center space-x-1;
+    @apply px-4 py-1 border border-grayscale-300 text-primary-dark opacity-70 rounded-full capitalize flex items-center space-x-1 bg-light;
   }
 }
