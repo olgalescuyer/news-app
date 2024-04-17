@@ -29,7 +29,7 @@ const Header = () => {
         </header>{' '}
         <div className="relative">
           <div className="flex justify-between items-center">
-            <div className="overflow-x-auto flex items-center space-x-3 mt-3 mb-4 relative">
+            <div className="overflow-x-auto pb-3 flex items-center space-x-3 mt-3 mb-1 relative">
               {/* <SearchButton className=" lg:hidden flex chips" label="search" /> */}
               <Filters />
             </div>

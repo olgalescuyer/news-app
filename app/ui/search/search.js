@@ -18,13 +18,14 @@ const search = cva([''], {
       desktop: [
         'pl-4 md:pl-10 lg:pl-14 overlay  absolute bottom-0 left-0 z-50 w-[calc(100%-130px)]  my-3',
       ],
-      mobile: [' w-full overlay'],
+      mobile: [' w-full '],
     },
   },
 });
 
 const Search = ({ className, intent }) => {
   const a_search_container = useRef();
+  const overlay = useRef();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -39,17 +40,17 @@ const Search = ({ className, intent }) => {
   };
 
   useGSAP(
-    (context, contextSafe) => {
+    () => {
       // ✅ safe, created during execution, selector text scoped
 
       if (showSearch) {
-        gsap.to('.overlay', {
+        gsap.to(overlay.current, {
           duration: 1,
           '--clip': '100% 0%, 0% 0%, 0% 125%, 100% 100%',
           ease: 'power4.Out',
         });
       } else {
-        gsap.to('.overlay', {
+        gsap.to(overlay.current, {
           duration: 1,
           '--clip': '0% 0%, 0% 0%, 0% 100%, 0% 100%',
           ease: 'power4.Out',
@@ -72,7 +73,7 @@ const Search = ({ className, intent }) => {
       ref={a_search_container}
       className={twMerge('search-bar', className)}
     >
-      <div className={twMerge(search({ intent }))}>
+      <div ref={overlay} className={twMerge(search({ intent }))}>
         <div className="relative flex flex-1 flex-shrink-0 transition-all duration-1000 ">
           <label htmlFor="search" className="sr-only">
             Search
