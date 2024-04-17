@@ -16,6 +16,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .overlay {
+    --clip: 0% 0%, 0% 0%, 0% 125%, 0% 100%;
+    clip-path: polygon(var(--clip));
+  }
 }
 
 @layer components {
