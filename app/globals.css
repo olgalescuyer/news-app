@@ -28,6 +28,6 @@ body {
   }
 
   .chips {
-    @apply px-4 py-1 border border-grayscale-300 text-primary-dark opacity-70 rounded-full capitalize flex items-center space-x-1 bg-light;
+    @apply px-4 py-1 border border-grayscale-300 text-primary-dark opacity-70 rounded-full capitalize;
   }
 }

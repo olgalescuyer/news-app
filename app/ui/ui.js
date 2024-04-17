@@ -6,6 +6,7 @@ import Navigation from './navigation/navigation';
 import Filters from './filters/filters';
 import Search from './search/search';
 import SearchButton from './search-button/search-button';
+import LatestNews from './latest-news/latest-news';
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   Filters,
   Search,
   SearchButton,
+  LatestNews,
 };

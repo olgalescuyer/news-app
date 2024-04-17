@@ -7,7 +7,7 @@ gsap.registerPlugin(useGSAP);
 import { useAppContext } from '@/app/providers/AppWrapper';
 import { Navigation, Search } from '@/app/ui/ui';
 
-const MenuMobile = () => {
+const MenuMobile = ({ data }) => {
   const { showMenu, handleShowMenu } = useAppContext();
   const a_search_container = useRef();
   const items = useRef();
@@ -23,10 +23,11 @@ const MenuMobile = () => {
       }`}
     >
       <div ref={items} className="">
-        <Search className="mb-2 lg:hidden" />
+        <Search className="my-2 lg:hidden" />
         <Navigation
           intent="mobile"
           variant="text-center border border-grayscale-100 my-1 bg-grayscale-100"
+          data={data}
         />
       </div>
     </div>

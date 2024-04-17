@@ -14,22 +14,13 @@ const navigation = cva([''], {
 const Navigation = ({ data, intent, variant }) => {
   return (
     <nav className={twMerge(navigation({ intent, variant }))}>
-      {[
-        ['Business', '/business'],
-        ['Culture', '/culture'],
-        ['Politics', '/politic'],
-        ['Sports', '/sports'],
-        ['Health', '/sports'],
-        ['Style', '/sports'],
-        ['Travel', '/sports'],
-        ['Entertainment', '/sports'],
-      ].map(([title, url], index) => (
+      {data?.map((category, index) => (
         <Link
           key={index}
-          href={url}
-          className={`rounded-full px-4 py-1 font-medium transition-all duration-500 hover:bg-grayscale-100 hover:text-grayscale-400 ${variant} `}
+          href={`/${category}`}
+          className={`rounded-full px-4 py-1 font-medium transition-all duration-500 hover:bg-grayscale-100 hover:text-grayscale-400 capitalize text-lg lg:text-xl ${variant} `}
         >
-          {title}
+          {category}
         </Link>
       ))}
     </nav>

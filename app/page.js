@@ -1,9 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
+// import { getSources } from '@/app/lib/data';
 
-export default function Home() {
+import { LatestNews } from '@/app/ui/ui';
+
+export default async function Home() {
   return (
-    <div className="h-screen flex justify-around items-center ">
-      <h1 className="font-semibold text-primary-accent text-5xl">Hello</h1>
+    <div className="min-h-screen  mt-40 lg:grid grid-cols-12">
+      <LatestNews />
     </div>
   );
 }
