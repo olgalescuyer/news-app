@@ -9,7 +9,7 @@ const LatestNews = async () => {
 
   return (
     <div className="latest-news col-span-12 lg:col-span-3 lg:col-start-10 ">
-      <h2 className="heading mb-6">Latest News</h2>
+      <h2 className="heading mb-6">Actualité</h2>
       <div className="latest-news-cards">
         {news.articles.slice(0, 6).map((item, index) => (
           <div
@@ -30,7 +30,9 @@ const LatestNews = async () => {
               </h3>
             </Link>
 
-            <span className=" opacity-70 pt-2">Read on "{item.author}"</span>
+            {item.author && (
+              <span className=" opacity-70 pt-2">Lire "{item.author}"</span>
+            )}
           </div>
         ))}
       </div>
