@@ -11,6 +11,8 @@ import NewsImage from './news-image/news-image';
 import Spinner from './spinner/spinner';
 import ArticleCard from './article-card/article-card';
 import InfiniteCards from './infinite-cards/infinite-cards';
+import Footer from './footer/footer';
+import MoveOnScroll from './move-onscroll/move-onscroll';
 
 export {
   Header,
@@ -26,4 +28,6 @@ export {
   Spinner,
   ArticleCard,
   InfiniteCards,
+  Footer,
+  MoveOnScroll,
 };
