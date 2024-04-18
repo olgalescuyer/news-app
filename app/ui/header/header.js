@@ -10,20 +10,10 @@ import {
 } from '@/app/ui/ui';
 import { SearchIcon } from '@/app/icons/icons';
 
-import { getSources } from '@/app/lib/data';
-
 const Header = async () => {
-  const sources = await getSources();
-
-  const newArr = sources.sources;
-
-  const categories = Array.from(
-    new Set(newArr.map((source) => source.category))
-  );
-  // console.log(categories);
   return (
     <div className="fixed top-0 left-0 z-30 w-full bg-light flex flex-col">
-      <div className="main-container relative ">
+      <div className="main-container w-full relative ">
         <header className="z-40 pt-2 md:pt-4 lg:pt-6 ">
           <div className="flex justify-between lg:justify-normal items-end mb-2">
             <Link href="/" className="w-36 pb-2 mr-1">
@@ -32,7 +22,7 @@ const Header = async () => {
 
             <MenuButton />
 
-            <Navigation intent="desktop" data={categories} />
+            <Navigation intent="desktop" />
           </div>
 
           <div className="divider h-px w-full bg-grayscale-300"></div>
@@ -49,7 +39,7 @@ const Header = async () => {
         </div> */}
         {/* <Search className="hidden lg:block " intent="desktop" /> */}
         {/* <Search className=" lg:hidden" intent="mobile" /> */}
-        <MenuMobile data={categories} />
+        <MenuMobile />
       </div>
     </div>
   );

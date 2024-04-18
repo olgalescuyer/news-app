@@ -6,7 +6,7 @@ const options = {
   headers: {
     'X-Api-Key': process.env.API_KEY,
   },
-  next: { revalidate: 10 },
+  // next: { revalidate: 10 },
 };
 
 export async function getNews() {

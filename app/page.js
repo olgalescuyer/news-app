@@ -7,12 +7,9 @@ import { LatestNews, InfiniteCards, ArticleCard, Spinner } from '@/app/ui/ui';
 
 export default async function Home() {
   return (
-    <section className="min-h-screen mt-40 lg:grid lg:grid-cols-12 gap-6">
-      <div className="lg:col-span-9">
-        <h2 className="heading mb-6">Populaires</h2>
-        <InfiniteCards />
-      </div>
-      {/* <LatestNews /> */}
+    <section className="lg:col-span-9">
+      <h2 className="heading mb-6">Populaires</h2>
+      <InfiniteCards keyword={'paris'} />
     </section>
   );
 }

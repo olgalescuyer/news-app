@@ -20,9 +20,8 @@ export default function RootLayout({ children }) {
             <main>
               <div className="main-container mt-40 lg:grid lg:grid-cols-12 gap-6">
                 {children}
+                {/* <LatestNews /> */}
               </div>
-
-              {/* <LatestNews /> */}
             </main>
           </div>
         </AppWrapper>
