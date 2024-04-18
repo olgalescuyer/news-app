@@ -6,13 +6,13 @@ const options = {
   headers: {
     'X-Api-Key': process.env.API_KEY,
   },
+  next: { revalidate: 10 },
 };
 
 export async function getNews() {
-  // `force-cache` is the default and that's why it is omitted:
   try {
     const data = await fetch(
-      `${process.env.API_URL}/top-headlines?country=fr&category=business`,
+      `${process.env.API_URL}/top-headlines?country=us&category=business`,
       options
     );
 
@@ -24,7 +24,6 @@ export async function getNews() {
 }
 
 export async function getSources() {
-  // `force-cache` is the default and that's why it is omitted:
   try {
     const data = await fetch(
       `${process.env.API_URL}/top-headlines/sources`,
@@ -40,10 +39,9 @@ export async function getSources() {
 
 export async function getPopularArticles() {
   const oneMonthAgo = getDateOneMonthAgo();
-  // `force-cache` is the default and that's why it is omitted:
   try {
     const data = await fetch(
-      `${process.env.API_URL}/everything?q=olympics&from${oneMonthAgo}&language=fr&sortBy=popularity`,
+      `${process.env.API_URL}/everything?q=olympics&from${oneMonthAgo}&language=en&sortBy=popularity`,
       options
     );
 
