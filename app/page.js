@@ -11,6 +11,11 @@ import {
 } from '@/app/ui/ui';
 // import dummy from '/public/images/dummy.webp';
 
+export const metadata = {
+  title: 'News App',
+  description: 'News App',
+};
+
 export default async function Home() {
   return (
     <section className="lg:col-span-9">

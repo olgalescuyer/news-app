@@ -26,7 +26,9 @@ const Footer = () => {
     >
       <div className="main-container w-full flex items-center justify-between">
         <Link href="/" className="w-20 ">
-          <span className="sr-only">Aller à la page d'accueil</span>
+          <span className="sr-only text-primary-light">
+            Aller à la page d'accueil
+          </span>
           <Logo variant="fill-primary-light" />
         </Link>
 
