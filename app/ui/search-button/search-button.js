@@ -12,9 +12,15 @@ const SearchButton = ({ className, label }) => {
     <button onClick={handleShowSearch} className={twMerge('', className)}>
       {label ? <span>{label}</span> : false}
       {showSearch ? (
-        <CloseIcon variant="size-6" />
+        <>
+          <CloseIcon variant="size-6" />
+          <span className="sr-only">Close search bar</span>
+        </>
       ) : (
-        <SearchIcon variant="size-6" />
+        <>
+          <SearchIcon variant="size-6" />
+          <span className="sr-only">Open search bar</span>
+        </>
       )}
     </button>
   );

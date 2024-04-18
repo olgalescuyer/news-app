@@ -2,7 +2,17 @@ import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { InfiniteCards } from '@/app/ui/ui';
+import { InfiniteCards, Logo } from '@/app/ui/ui';
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // Capitalize the first letter of params.slug
+  const capitalizedSlug =
+    params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
+
+  return {
+    title: `News App | ${capitalizedSlug}`,
+  };
+}
 
 export default async function Page({ params }) {
   return (

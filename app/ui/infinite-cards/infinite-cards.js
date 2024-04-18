@@ -54,7 +54,15 @@ const InfiniteCards = ({ keyword }) => {
       </div>
     );
 
-  return <ArticleCardsSkeleton />;
+  return (
+    <div>
+      <ArticleCardsSkeleton />
+
+      <div className="flex justify-center items-center w-full mt-40" ref={ref}>
+        <Spinner />
+      </div>
+    </div>
+  );
 };
 
 export default InfiniteCards;

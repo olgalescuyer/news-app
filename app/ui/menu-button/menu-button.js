@@ -10,9 +10,15 @@ const MenuButton = () => {
   return (
     <button onClick={handleShowMenu}>
       {showMenu ? (
-        <CloseIcon variant="lg:hidden size-8" />
+        <>
+          <CloseIcon variant="lg:hidden size-8" />
+          <span className="sr-only">Close menu</span>
+        </>
       ) : (
-        <MenuIcon variant="lg:hidden size-8" />
+        <>
+          <MenuIcon variant="lg:hidden size-8" />
+          <span className="sr-only">Open menu</span>
+        </>
       )}
     </button>
   );
