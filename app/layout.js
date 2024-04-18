@@ -1,8 +1,15 @@
 import './globals.css';
+import { Suspense } from 'react';
 import { primary } from '@/app/ui/fonts/fonts';
 
 import { AppWrapper } from '@/app/providers/AppWrapper';
-import { Header, LatestNews, Footer, MoveOnScroll } from '@/app/ui/ui';
+import {
+  Header,
+  LatestNews,
+  Footer,
+  MoveOnScroll,
+  LatestNewsCardSkeleton,
+} from '@/app/ui/ui';
 
 export const metadata = {
   title: 'Create Next App',
@@ -23,7 +30,10 @@ export default function RootLayout({ children }) {
             <main>
               <div className="main-container mt-40 lg:grid lg:grid-cols-12 gap-6">
                 {children}
-                {/* <LatestNews /> */}
+
+                <Suspense fallback={<LatestNewsCardSkeleton />}>
+                  <LatestNews />
+                </Suspense>
               </div>
             </main>
             <Footer />
