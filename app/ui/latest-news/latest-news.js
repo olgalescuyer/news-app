@@ -8,8 +8,8 @@ const LatestNews = async () => {
   // console.log(news.totalResults);
 
   return (
-    <div className="latest-news col-span-12 lg:col-span-4 lg:col-start-9 ">
-      <h2 className="heading mb-6">Latest News</h2>
+    <div className="latest-news col-span-12 lg:col-span-3 lg:col-start-10 ">
+      <h2 className="heading mb-6">Actualité</h2>
       <div className="latest-news-cards">
         {news.articles.slice(0, 6).map((item, index) => (
           <div
@@ -25,12 +25,14 @@ const LatestNews = async () => {
 
             <Link href={item.url}>
               {' '}
-              <h3 className="text-2xl font-semibold transition-all duration-500 hover:opacity-60 mb-2">
+              <h3 className="text-xl font-semibold transition-all duration-500 hover:opacity-60 mb-2">
                 {item.title}
               </h3>
             </Link>
 
-            <span className=" opacity-70 pt-2">Read on "{item.author}"</span>
+            {item.author && (
+              <span className=" opacity-70 pt-2">Lire "{item.author}"</span>
+            )}
           </div>
         ))}
       </div>

@@ -8,6 +8,9 @@ import Search from './search/search';
 import SearchButton from './search-button/search-button';
 import LatestNews from './latest-news/latest-news';
 import NewsImage from './news-image/news-image';
+import Spinner from './spinner/spinner';
+import ArticleCard from './article-card/article-card';
+import InfiniteCards from './infinite-cards/infinite-cards';
 
 export {
   Header,
@@ -20,4 +23,7 @@ export {
   SearchButton,
   LatestNews,
   NewsImage,
+  Spinner,
+  ArticleCard,
+  InfiniteCards,
 };
