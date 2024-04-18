@@ -2,29 +2,31 @@
 import { useEffect, useState, Fragment } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { ArticleCard, Logo, Spinner } from '@/app/ui/ui';
+import { ArticleCard, Spinner } from '@/app/ui/ui';
 import { getPopularArticles } from '@/app/lib/actions';
+
+import { articles } from '@/app/lib/placeholder-data';
 
 let page = 2;
 
-const InfiniteCards = () => {
+const InfiniteCards = ({ keyword }) => {
   const { ref, inView } = useInView();
 
-  const [data, setData] = useState([]);
+  const data = articles;
 
-  useEffect(() => {
-    if (inView) {
-      getPopularArticles(page).then((res) => {
-        // console.log(res.articles);
-        const articles = res.articles;
+  // const [data, setData] = useState([]);
 
-        setData([...data, ...articles]);
-      });
-    }
-    page++;
-  }, [inView, data]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     getPopularArticles(keyword, page).then((res) => {
+  //       console.log(res);
+  //       const articles = res.articles;
+  //       setData([...data, ...articles]);
+  //     });
+  //   }
+  //   setData([...data, ...articles]);
+  // }, [inView, data]);
 
-  // console.log(page);
   return (
     <div className="flex flex-col ">
       {data.map((article, index) => (
@@ -32,9 +34,9 @@ const InfiniteCards = () => {
           <ArticleCard article={article} />
         </Fragment>
       ))}
-      <div className="flex justify-center items-center w-full" ref={ref}>
+      {/* <div className="flex justify-center items-center w-full" ref={ref}>
         <Spinner />
-      </div>
+      </div> */}
     </div>
   );
 };

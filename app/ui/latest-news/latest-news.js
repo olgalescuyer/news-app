@@ -8,7 +8,7 @@ const LatestNews = async () => {
   // console.log(news.totalResults);
 
   return (
-    <div className="latest-news col-span-12 lg:col-span-3 lg:col-start-10 ">
+    <section className="latest-news col-span-12 lg:col-span-3 lg:col-start-10 ">
       <h2 className="heading mb-6">Actualité</h2>
       <div className="latest-news-cards">
         {news.articles.slice(0, 6).map((item, index) => (
@@ -31,12 +31,12 @@ const LatestNews = async () => {
             </Link>
 
             {item.author && (
-              <span className=" opacity-70 pt-2">Lire "{item.author}"</span>
+              <span className=" opacity-70 pt-2">Lire sur "{item.author}"</span>
             )}
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
