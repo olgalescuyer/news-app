@@ -13,6 +13,11 @@ import ArticleCard from './article-card/article-card';
 import InfiniteCards from './infinite-cards/infinite-cards';
 import Footer from './footer/footer';
 import MoveOnScroll from './move-onscroll/move-onscroll';
+import {
+  ArticleCardsSkeleton,
+  LatestNewsCardSkeleton,
+  LatestNewsCardsSkeleton,
+} from './skeletons/skeletons';
 
 export {
   Header,
@@ -30,4 +35,7 @@ export {
   InfiniteCards,
   Footer,
   MoveOnScroll,
+  ArticleCardsSkeleton,
+  LatestNewsCardSkeleton,
+  LatestNewsCardsSkeleton,
 };
