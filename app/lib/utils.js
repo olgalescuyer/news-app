@@ -1,7 +1,9 @@
-import { formatDistanceToNow, sub } from 'date-fns';
+import { formatDistanceToNow, sub, setDefaultOptions } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 export const formatDateAgo = (dateString) => {
   const publishedDate = new Date(dateString);
+  setDefaultOptions({ locale: fr });
 
   // fix the lack of free plan (latest news from yesterday issue) :
   const yesterday = sub(new Date(), { days: 1 }); // Get yesterday's date

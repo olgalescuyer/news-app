@@ -12,14 +12,14 @@ const options = {
 export async function getNews() {
   try {
     const data = await fetch(
-      `${process.env.API_URL}/top-headlines?country=us&category=business`,
+      `${process.env.API_URL}/top-headlines?country=fr&category=business`,
       options
     );
 
     return data.json();
   } catch {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch card data.');
+    throw new Error('Failed to fetch clatest news.');
   }
 }
 
@@ -33,21 +33,21 @@ export async function getSources() {
     return data.json();
   } catch {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch card data.');
+    throw new Error('Failed to fetch sources.');
   }
 }
 
-export async function getPopularArticles() {
+export async function getPopularArticles({ page }) {
   const oneMonthAgo = getDateOneMonthAgo();
   try {
     const data = await fetch(
-      `${process.env.API_URL}/everything?q=olympics&from${oneMonthAgo}&language=en&sortBy=popularity`,
+      `${process.env.API_URL}/everything?q=paris&searchIn=description&from${oneMonthAgo}&language=fr&sortBy=popularity&pageSize=3&page${page}`,
       options
     );
 
     return data.json();
   } catch {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch card data.');
+    throw new Error('Failed to fetch cpopular articles.');
   }
 }

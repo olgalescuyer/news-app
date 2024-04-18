@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={` ${primary.variable} text-primary-dark`}>
+    <html lang="fr" className={` ${primary.variable} text-primary-dark`}>
       <body suppressHydrationWarning={true}>
         <AppWrapper>
           {' '}
