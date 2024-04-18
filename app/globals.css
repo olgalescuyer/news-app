@@ -36,7 +36,7 @@ body {
   }
 
   .article-title {
-    @apply text-2xl font-semibold transition-all duration-500 hover:opacity-60 mb-2;
+    @apply text-2xl font-bold transition-all duration-500 hover:opacity-60 mb-2;
   }
 
   .meta-time {

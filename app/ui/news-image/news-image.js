@@ -3,7 +3,7 @@ import React from 'react';
 
 const NewsImage = ({ imageUrl }) => {
   return (
-    <div className="h-52 overflow-hidden">
+    <div className="h-72 overflow-hidden">
       <img
         src={imageUrl}
         alt="Image from source"

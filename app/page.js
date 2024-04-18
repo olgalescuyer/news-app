@@ -15,16 +15,16 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen  mt-40 lg:grid lg:grid-cols-12 gap-6">
-      <div className="lg:col-span-8">
+      <div className="lg:col-span-9">
         <h2 className="heading mb-6">Most Popular</h2>
 
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col ">
           {articles.map((article, index) => (
             <article
-              className="card-popular  grid grid-cols-3 gap-8"
+              className="card-popular  grid grid-cols-5 gap-x-8 border-b border-dotted py-6 md:py-8 lg:py-10"
               key={index}
             >
-              <div className="body col-span-2">
+              <div className="body col-span-3">
                 <div className="meta-time ">
                   Published at&nbsp;
                   {new Date(article.publishedAt).toLocaleString('en-US', {
@@ -48,7 +48,7 @@ export default async function Home() {
               {/* <p>{removeMarkdown(article.description)}</p> */}
               {/* <Link href={article.url}>see</Link> */}
               {/* Check for error from image URL */}
-              <div className="col-span-1">
+              <div className="col-span-2">
                 {article.urlToImage && (
                   <NewsImage imageUrl={article.urlToImage} />
                 )}
