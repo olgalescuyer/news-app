@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -29,5 +15,31 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .overlay {
+    --clip: 0% 0%, 0% 0%, 0% 125%, 0% 100%;
+    clip-path: polygon(var(--clip));
+  }
+}
+
+@layer components {
+  .main-container {
+    @apply max-w-[1980px]  px-4 md:px-10 lg:px-14 mx-auto;
+  }
+
+  .chips {
+    @apply px-4 py-1 border border-grayscale-300 text-primary-dark opacity-70 rounded-full capitalize;
+  }
+
+  .heading {
+    @apply font-bold text-3xl uppercase;
+  }
+
+  .article-title {
+    @apply text-2xl font-bold transition-all duration-500 hover:opacity-60 mb-2;
+  }
+
+  .meta-time {
+    @apply text-xs md:text-sm opacity-80;
   }
 }
