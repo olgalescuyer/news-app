@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Logo from '@/app/ui/logo/logo';
 import {
@@ -15,7 +16,7 @@ const Header = async () => {
         <div className="flex justify-between  items-end mb-2 ">
           <div className="flex items-end">
             <Link href="/" className="w-20 lg:w-36 pb-2 mr-1">
-              <span className="sr-only">Aller à la page d'accueil</span>
+              <span className="sr-only">Aller à la page d&quot;accueil</span>
               <Logo variant="fill-primary-dark" />
             </Link>
 
@@ -28,7 +29,9 @@ const Header = async () => {
 
         <div className="divider h-px w-full bg-grayscale-300"></div>
       </header>{' '}
-      <Search intent="animated" className="hidden lg:block" />
+      <Suspense>
+        <Search intent="animated" className="hidden lg:block" />
+      </Suspense>
       <MenuMobile />
     </div>
   );

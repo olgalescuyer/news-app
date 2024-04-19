@@ -14,9 +14,9 @@ const MenuMobile = () => {
 
   return (
     <div
+      aria-hidden={showMenu ? false : true}
       role="navigation"
       aria-label="Main"
-      aria-modal="true"
       ref={a_search_container}
       className={`menu-mobile w-full bg-light transition-all duration-500 origin-top ${
         showMenu ? '' : 'hidden'
