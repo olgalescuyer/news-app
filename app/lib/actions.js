@@ -10,13 +10,13 @@ const options = {
   // next: { revalidate: 10 },
 };
 
-export async function getArticles(keyword, page) {
+export async function getArticles(keyword, sortBy, page) {
   const oneMonthAgo = getDateOneMonthAgo();
   // page is for infinite scroll feature
 
   try {
     const response = await fetch(
-      `${process.env.API_URL}/everything?q=${keyword}&searchIn=description&from${oneMonthAgo}&language=fr&sortBy=relevancy&pageSize=3&page=${page}`,
+      `${process.env.API_URL}/everything?q=${keyword}&searchIn=description&from${oneMonthAgo}&language=fr&sortBy=${sortBy}&pageSize=3&page=${page}`,
       options
     );
 

@@ -7,6 +7,8 @@ const AppContext = createContext({
   handleShowMenu: () => {},
   showSearch: false,
   handleShowSearch: () => {},
+  searchTrigger: false,
+  handleSearchTrigger: () => {},
 });
 
 export function AppWrapper({ children }) {
@@ -24,12 +26,21 @@ export function AppWrapper({ children }) {
     setShowSearch(!showSearch);
   };
 
+  // searchbar toggle:
+  const [searchTrigger, setSearchTrigger] = useState(false);
+  const handleSearchTrigger = () => {
+    // console.log('clicked');
+    setSearchTrigger(!showSearch);
+  };
+
   // states finally :
   let sharedState = {
     showMenu,
     handleShowMenu,
     showSearch,
     handleShowSearch,
+    searchTrigger,
+    handleSearchTrigger,
   };
 
   return (

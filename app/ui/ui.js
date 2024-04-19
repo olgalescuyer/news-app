@@ -15,6 +15,7 @@ import Footer from './footer/footer';
 import MoveOnScroll from './move-onscroll/move-onscroll';
 import {
   ArticleCardsSkeleton,
+  ArticleCardSkeleton,
   LatestNewsCardSkeleton,
   LatestNewsCardsSkeleton,
 } from './skeletons/skeletons';
@@ -36,6 +37,7 @@ export {
   Footer,
   MoveOnScroll,
   ArticleCardsSkeleton,
+  ArticleCardSkeleton,
   LatestNewsCardSkeleton,
   LatestNewsCardsSkeleton,
 };

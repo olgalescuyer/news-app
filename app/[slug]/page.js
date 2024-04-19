@@ -18,7 +18,7 @@ export default async function Page({ params }) {
   return (
     <section className="lg:col-span-9">
       <h2 className="heading mb-6">{params.slug}</h2>
-      <InfiniteCards keyword={params.slug} />
+      <InfiniteCards keyword={params.slug} sortBy={`relevancy`} />
     </section>
   );
 }

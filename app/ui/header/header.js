@@ -30,7 +30,7 @@ const Header = async () => {
 
         <div className="divider h-px w-full bg-grayscale-300"></div>
       </header>{' '}
-      <Search intent="desktop" className="hidden lg:block" />
+      <Search intent="animated" className="hidden lg:block" />
       <MenuMobile />
     </div>
   );

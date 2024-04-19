@@ -1,42 +1,50 @@
 'use client';
 import { useEffect, useState, Fragment } from 'react';
+import { usePathname } from 'next/navigation';
 import { useInView } from 'react-intersection-observer';
 
 import { ArticleCard, Spinner, ArticleCardsSkeleton } from '@/app/ui/ui';
 import { getArticles } from '@/app/lib/actions';
 
-import { articles } from '@/app/lib/placeholder-data';
+import { useAppContext } from '@/app/providers/AppWrapper';
 
 let page = 2;
 
-const InfiniteCards = ({ keyword }) => {
+const InfiniteCards = ({ keyword, sortBy }) => {
+  const pathname = usePathname();
   const { ref, inView } = useInView();
-  // let data;
-  // setTimeout(() => {
-  //   data = articles;
-  // }, '10000');
+  const { searchTrigger, handleSearchTrigger } = useAppContext();
+  console.log(searchTrigger);
 
-  // const data = articles;
   const [data, setData] = useState([]);
+  const [message, setMessage] = useState(
+    "Il semble qu'aucun article ne corresponde à ces mots."
+  );
 
   useEffect(() => {
     if (inView) {
-      getArticles(keyword, page)
+      getArticles(keyword, sortBy, page)
         .then((res) => {
-          // console.log(res.status);
+          // console.log(res);
+
           if (res.status === 'ok') {
             const articles = res.articles;
             setData([...data, ...articles]);
+          } else if (res.totalResults === 0) {
+            setMessage("Il semble qu'aucun article ne corresponde à ces mots.");
           } else {
             console.log(res.status);
+            console.log(res.message);
           }
         })
         .catch((err) => console.log(err));
     }
     page++;
-  }, [inView, data]);
 
-  // console.log(data);
+    return () => {
+      setMessage('');
+    };
+  }, [inView, data, searchTrigger]);
 
   if (data.length !== 0)
     return (
@@ -47,7 +55,7 @@ const InfiniteCards = ({ keyword }) => {
           </Fragment>
         ))}
         <div
-          className="flex justify-center items-center w-full mt-80"
+          className="flex justify-center items-center w-full mt-10"
           ref={ref}
         >
           <Spinner />
@@ -57,14 +65,15 @@ const InfiniteCards = ({ keyword }) => {
 
   return (
     <div>
-      <ArticleCardsSkeleton />
+      {pathname === '/search' ? <span>{message}</span> : false}
 
-      <div
-        className="flex justify-center items-center w-full mt-20 lg:mt-40"
-        ref={ref}
-      >
-        <Spinner />
-      </div>
+      <>
+        {' '}
+        <ArticleCardsSkeleton />{' '}
+        <div className="flex justify-center items-center w-full mt-6" ref={ref}>
+          <Spinner />
+        </div>
+      </>
     </div>
   );
 };
