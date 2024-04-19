@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { NewsImage, Spinner } from '@/app/ui/ui';
+import { NewsImage } from '@/app/ui/ui';
 import { containsMarkdown } from '@/app/lib/utils';
 
 const ArticleCard = ({ article }) => {

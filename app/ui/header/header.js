@@ -4,11 +4,9 @@ import {
   Navigation,
   MenuButton,
   MenuMobile,
-  Filters,
   Search,
   SearchButton,
 } from '@/app/ui/ui';
-import { SearchIcon } from '@/app/icons/icons';
 
 const Header = async () => {
   return (

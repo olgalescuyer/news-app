@@ -2,14 +2,10 @@ import Link from 'next/link';
 import { getNews } from '@/app/lib/data';
 import { formatDateAgo } from '@/app/lib/utils';
 
-import { ArticleCard, Spinner, LatestNewsCardsSkeleton } from '@/app/ui/ui';
+import { LatestNewsCardsSkeleton } from '@/app/ui/ui';
 
 const LatestNews = async () => {
   const news = await getNews();
-  // console.log(typeof news);
-  // console.log(news.totalResults);
-
-  // console.log(news);
 
   if (news.status === 'ok')
     return (

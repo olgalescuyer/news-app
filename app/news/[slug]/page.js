@@ -5,7 +5,6 @@ import { getArticles } from '@/app/lib/actions';
 const SingleArticlePage = async (params) => {
   const response = await getArticles(params.slug, 1);
 
-  //   console.log(response);
   return (
     <div className="col-span-8">
       <h1 className="heading mb-16">Single Article Page</h1>
