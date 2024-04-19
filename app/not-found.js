@@ -18,12 +18,10 @@ const NotFound = () => {
           Aller à la page d&quot;accueil
         </Link>
 
-        <div className="relative h-96  w-full max-w-xl mt-12">
+        <div className="relative h-96  w-full max-w-xl mt-12 flex justify-around">
           <Image
             src={gif}
             alt="error gif"
-            fill
-            sizes="(min-width: 808px) 50vw, 100vw"
             style={{
               objectFit: 'cover',
             }}
