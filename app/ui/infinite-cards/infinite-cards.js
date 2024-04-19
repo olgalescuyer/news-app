@@ -14,24 +14,19 @@ const InfiniteCards = ({ keyword, sortBy }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
   const { searchTrigger, handleSearchTrigger } = useAppContext();
-  console.log(searchTrigger);
 
   const [data, setData] = useState([]);
-  const [message, setMessage] = useState(
-    "Il semble qu'aucun article ne corresponde à ces mots."
-  );
+  const [message, setMessage] = useState('cccc');
 
   useEffect(() => {
     if (inView) {
-      getArticles(keyword, sortBy, page)
+      getArticles(keyword, page)
         .then((res) => {
           // console.log(res);
 
           if (res.status === 'ok') {
             const articles = res.articles;
             setData([...data, ...articles]);
-          } else if (res.totalResults === 0) {
-            setMessage("Il semble qu'aucun article ne corresponde à ces mots.");
           } else {
             console.log(res.status);
             console.log(res.message);
@@ -40,11 +35,7 @@ const InfiniteCards = ({ keyword, sortBy }) => {
         .catch((err) => console.log(err));
     }
     page++;
-
-    return () => {
-      setMessage('');
-    };
-  }, [inView, data, searchTrigger]);
+  }, [inView, data]);
 
   if (data.length !== 0)
     return (
@@ -64,17 +55,12 @@ const InfiniteCards = ({ keyword, sortBy }) => {
     );
 
   return (
-    <div>
-      {pathname === '/search' ? <span>{message}</span> : false}
-
-      <>
-        {' '}
-        <ArticleCardsSkeleton />{' '}
-        <div className="flex justify-center items-center w-full mt-6" ref={ref}>
-          <Spinner />
-        </div>
-      </>
-    </div>
+    <>
+      <ArticleCardsSkeleton />{' '}
+      <div className="flex justify-center items-center w-full mt-6" ref={ref}>
+        <Spinner />
+      </div>
+    </>
   );
 };
 

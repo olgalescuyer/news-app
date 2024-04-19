@@ -31,9 +31,8 @@ const Search = ({ className, intent }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace, push } = useRouter();
-  // console.log(pathname);
 
-  const { showSearch, handleShowSearch, handleSearchTrigger } = useAppContext();
+  const { showSearch, handleShowSearch } = useAppContext();
 
   const handleSearch = (term) => {
     console.log(`Searching... ${term}`);
@@ -50,7 +49,7 @@ const Search = ({ className, intent }) => {
   // animated search bar in desktop intent (overlay by clipPath css)
   useGSAP(
     () => {
-      // safe, created during execution, selector text scoped
+      // safe, created during execution, selector .overlay scoped
       animateOverlay(showSearch, overlay);
     },
     {
@@ -88,7 +87,6 @@ const Search = ({ className, intent }) => {
               if (pathname !== '/search') {
                 handleShowSearch();
               }
-              handleSearchTrigger();
             }}
             className="absolute top-0 right-0 py-2 px-2 md:px-10 transition-all duration-500 bg-primary-accent hover:opacity-80   rounded-full "
           >
