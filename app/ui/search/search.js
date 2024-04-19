@@ -35,7 +35,7 @@ const Search = ({ className, intent }) => {
   const { showSearch, handleShowSearch } = useAppContext();
 
   const handleSearch = (term) => {
-    console.log(`Searching... ${term}`);
+    // console.log(`Searching... ${term}`);
 
     const params = new URLSearchParams(searchParams);
     if (term) {
