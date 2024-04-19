@@ -1,4 +1,12 @@
+## Hello
+Quick heads up: Been wrangling with just 50 requests every 12 hours on the News API (yeah, the free plan blues).
+Just for comparison, the Business plan offers a lot more firepower 😊
+
+Best regards
+
+![News-App-Search](https://github.com/olgalescuyer/news-app/assets/84182327/27b855db-2905-4c62-9c2d-8834281b715a)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 
 ## Getting Started
 
