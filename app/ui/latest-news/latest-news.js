@@ -32,9 +32,7 @@ const LatestNews = async () => {
               </Link>
 
               {item.author && (
-                <span className=" opacity-70 pt-2">
-                  Lire sur "{item.author}"
-                </span>
+                <span className=" opacity-70 pt-2">Lire sur {item.author}</span>
               )}
             </div>
           ))}

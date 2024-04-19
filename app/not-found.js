@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,7 +15,7 @@ const NotFound = () => {
           href="/"
           className="text-primary-accent underline underline-offset-4 transition-all duration-500 hover:opacity-70 font-semibold"
         >
-          Aller à la page d'accueil
+          Aller à la page d&quot;accueil
         </Link>
 
         <div className="relative h-96  w-full max-w-xl mt-12">
@@ -28,10 +27,6 @@ const NotFound = () => {
             style={{
               objectFit: 'cover',
             }}
-            // width={500} automatically provided
-            // height={500} automatically provided
-            // blurDataURL="data:..." automatically provided
-            // placeholder="blur" // Optional blur-up while loading
           />
         </div>
       </div>
