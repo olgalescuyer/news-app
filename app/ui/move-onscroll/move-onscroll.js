@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 
 import useScroll from '@/app/hooks/useScroll';
 
@@ -19,11 +19,14 @@ const MoveOnScroll = ({ children }) => {
   }, [scroll.y, scroll.lastY]);
 
   return (
-    <div
-      className={`fixed top-0 left-0 z-30 w-full bg-light flex flex-col transition-all duration-500 animate-in_out ${classList}`}
-    >
-      {children}
-    </div>
+    <Suspense>
+      {' '}
+      <div
+        className={`fixed top-0 left-0 z-30 w-full bg-light flex flex-col transition-all duration-500 animate-in_out ${classList}`}
+      >
+        {children}
+      </div>
+    </Suspense>
   );
 };
 
