@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
             </MoveOnScroll>
 
             <main>
-              <div className="main-container mt-40 lg:grid lg:grid-cols-12 gap-6">
+              <div className="main-container mt-20 lg:mt-40 lg:grid lg:grid-cols-12 gap-6">
                 {children}
 
                 <Suspense fallback={<LatestNewsCardSkeleton />}>

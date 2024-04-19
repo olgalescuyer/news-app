@@ -19,7 +19,7 @@ export const metadata = {
 export default async function Home() {
   return (
     <section className="lg:col-span-9">
-      <h2 className="heading mb-6">Populaires</h2>
+      <h1 className="heading mb-6">Populaires</h1>
       <Suspense fallback={<ArticleCardsSkeleton />}>
         <InfiniteCards keyword={'paris'} />
       </Suspense>

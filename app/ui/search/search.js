@@ -1,5 +1,6 @@
 'use client';
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 import { cva } from 'class-variance-authority';
@@ -16,7 +17,7 @@ const search = cva([''], {
   variants: {
     intent: {
       desktop: [
-        'pl-4 md:pl-10 lg:pl-14 overlay  absolute bottom-0 left-0 z-50 w-[calc(100%-130px)]  my-3',
+        'px-4 md:px-10 lg:px-14 overlay  absolute -bottom-16 left-0 z-50 w-full  my-3',
       ],
       mobile: [' w-full '],
     },
@@ -44,6 +45,7 @@ const Search = ({ className, intent }) => {
       // ✅ safe, created during execution, selector text scoped
 
       if (showSearch) {
+        console.log('-----------');
         gsap.to(overlay.current, {
           duration: 1,
           '--clip': '100% 0%, 0% 0%, 0% 125%, 100% 100%',
@@ -87,9 +89,12 @@ const Search = ({ className, intent }) => {
           />
           <SearchIcon variant="size-6 absolute left-3 top-1/2 -translate-y-1/2 text-grayscale-200 peer-focus:text-primary-accent" />
 
-          <button className="absolute top-0 right-0 py-2 px-10 transition-all duration-500 bg-primary-accent hover:opacity-80  text-primary-light rounded-full ">
+          <Link
+            href={`/search`}
+            className="absolute top-0 right-0 py-2 px-10 transition-all duration-500 bg-primary-accent hover:opacity-80  text-primary-light rounded-full "
+          >
             Search
-          </button>
+          </Link>
         </div>
       </div>
     </div>

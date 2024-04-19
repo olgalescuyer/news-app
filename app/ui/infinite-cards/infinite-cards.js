@@ -3,7 +3,7 @@ import { useEffect, useState, Fragment } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { ArticleCard, Spinner, ArticleCardsSkeleton } from '@/app/ui/ui';
-import { getPopularArticles } from '@/app/lib/actions';
+import { getArticles } from '@/app/lib/actions';
 
 import { articles } from '@/app/lib/placeholder-data';
 
@@ -21,8 +21,9 @@ const InfiniteCards = ({ keyword }) => {
 
   useEffect(() => {
     if (inView) {
-      getPopularArticles(keyword, page)
+      getArticles(keyword, page)
         .then((res) => {
+          // console.log(res.status);
           if (res.status === 'ok') {
             const articles = res.articles;
             setData([...data, ...articles]);
@@ -58,7 +59,10 @@ const InfiniteCards = ({ keyword }) => {
     <div>
       <ArticleCardsSkeleton />
 
-      <div className="flex justify-center items-center w-full mt-40" ref={ref}>
+      <div
+        className="flex justify-center items-center w-full mt-20 lg:mt-40"
+        ref={ref}
+      >
         <Spinner />
       </div>
     </div>

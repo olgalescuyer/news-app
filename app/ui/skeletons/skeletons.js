@@ -5,9 +5,9 @@ const shimmer =
 export function ArticleCardSkeleton() {
   return (
     <div
-      className={` skeleton  overflow-hidden  grid grid-cols-5 gap-x-8 border-b border-dotted py-6 md:py-8 lg:py-10`}
+      className={` skeleton  overflow-hidden  lg:grid grid-cols-5 gap-x-8 border-b border-dotted py-6 md:py-8 lg:py-10`}
     >
-      <div className="body col-span-3">
+      <div className="body col-span-3 max-w-2xl">
         <div className={`${shimmer} py-2 w-20 mb-3`}></div>
         <div className={`${shimmer} py-4 w-full odd:w-[80%] mb-2 `}></div>
         {[1, 2].map((item, index) => (
@@ -38,7 +38,7 @@ export function LatestNewsCardSkeleton() {
     <div
       className={` skeleton  overflow-hidden   border-b border-dotted py-6 md:py-8 lg:py-10`}
     >
-      <div className="body ">
+      <div className="body max-w-2xl">
         <div className={`${shimmer} py-2 w-20 mb-3`}></div>
         <div className={`${shimmer} py-4 w-full odd:w-[80%] mb-2 `}></div>
         {[1, 2].map((item, index) => (

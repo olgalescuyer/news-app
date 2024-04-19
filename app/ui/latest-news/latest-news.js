@@ -9,11 +9,11 @@ const LatestNews = async () => {
   // console.log(typeof news);
   // console.log(news.totalResults);
 
-  console.log(news);
+  // console.log(news);
 
   if (news.status === 'ok')
     return (
-      <section className="latest-news col-span-12 lg:col-span-3 lg:col-start-10 ">
+      <section className="latest-news hidden lg:block col-span-12 lg:col-span-3 lg:col-start-10 ">
         <h2 className="heading mb-6">Actualité</h2>
         <div className="latest-news-cards">
           {news.articles?.slice(0, 6).map((item, index) => (
