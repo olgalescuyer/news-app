@@ -12,6 +12,7 @@ import { SearchButton } from '@/app/ui/ui';
 import { SearchIcon } from '@/app/icons/icons';
 
 import { useAppContext } from '@/app/providers/AppWrapper';
+import { animateOverlay } from './animation';
 
 const search = cva([''], {
   variants: {
@@ -42,25 +43,8 @@ const Search = ({ className, intent }) => {
 
   useGSAP(
     () => {
-      // ✅ safe, created during execution, selector text scoped
-
-      if (showSearch) {
-        console.log('-----------');
-        gsap.to(overlay.current, {
-          duration: 1,
-          '--clip': '100% 0%, 0% 0%, 0% 125%, 100% 100%',
-          ease: 'power4.Out',
-        });
-      } else {
-        gsap.to(overlay.current, {
-          duration: 1,
-          '--clip': '0% 0%, 0% 0%, 0% 100%, 0% 100%',
-          ease: 'power4.Out',
-        });
-      }
-
-      // console.log('clicked');
-      // console.log(context.data.length);
+      // safe, created during execution, selector text scoped
+      animateOverlay(showSearch, overlay);
     },
     {
       dependencies: [showSearch],
@@ -81,19 +65,22 @@ const Search = ({ className, intent }) => {
             Search
           </label>
           <input
-            className="peer block w-full rounded-full border border-grayscale-200 outline-primary-accent py-[9px] pl-10 text-sm outline-2 placeholder:text-grayscale-400 "
+            className="peer block w-full rounded-full border border-grayscale-200 outline-primary-accent py-[9px] pl-6 md:pl-10 text-sm outline-2 placeholder:text-grayscale-400 "
             placeholder="Find your favorite topic..."
             onChange={(e) => {
               handleSearch(e.target.value);
             }}
           />
-          <SearchIcon variant="size-6 absolute left-3 top-1/2 -translate-y-1/2 text-grayscale-200 peer-focus:text-primary-accent" />
+          <SearchIcon variant="size-6 hidden md:block absolute left-3 top-1/2 -translate-y-1/2 text-grayscale-200 peer-focus:text-primary-accent" />
 
           <Link
             href={`/search`}
-            className="absolute top-0 right-0 py-2 px-10 transition-all duration-500 bg-primary-accent hover:opacity-80  text-primary-light rounded-full "
+            className="absolute top-0 right-0 py-2 px-2 md:px-10 transition-all duration-500 bg-primary-accent hover:opacity-80   rounded-full "
           >
-            Search
+            <SearchIcon variant="size-6 md:hidden text-primary-light" />
+            <span className="sr-only md:not-sr-only font-semibold text-primary-light">
+              Search
+            </span>
           </Link>
         </div>
       </div>
