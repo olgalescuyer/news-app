@@ -23,7 +23,7 @@ const MenuMobile = () => {
       }`}
     >
       <div ref={items} className="">
-        <Search className="my-2 lg:hidden" />
+        <Search className="my-2 lg:hidden" intent="static" />
         <Navigation
           intent="mobile"
           variant="text-center border border-grayscale-100 my-1 bg-grayscale-100"

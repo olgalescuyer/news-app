@@ -46,3 +46,13 @@ export function containsMarkdown(markdownString) {
   // Check if the string contains Markdown syntax
   return markdownRegex.test(markdownString);
 }
+
+export function formatQueryStringForUrl(queryString) {
+  // Remove symbols and special characters
+  const cleanedString = queryString.replace(/[^\w\s]/gi, '');
+
+  // Replace spaces with hyphens
+  const formattedString = cleanedString.replace(/\s+/g, '-');
+
+  return formattedString;
+}

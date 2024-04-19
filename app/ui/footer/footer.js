@@ -22,10 +22,10 @@ const Footer = () => {
 
   return (
     <footer
-      className={`fixed bottom-0 left-0 z-30 w-full bg-dark py-2 transition-all duration-500 ease-in ${classList}`}
+      className={`fixed bottom-0 left-0 z-30 w-full bg-dark py-2 transition-all duration-500 animate-in_out ${classList}`}
     >
       <div className="main-container w-full flex items-center justify-between">
-        <Link href="/" className="w-20 ">
+        <Link href="/" className="w-12 lg:w-20 ">
           <span className="sr-only text-primary-light">
             Aller à la page d'accueil
           </span>

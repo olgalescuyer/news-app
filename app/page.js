@@ -1,15 +1,6 @@
-import { Fragment, Suspense } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Suspense } from 'react';
 
-import {
-  LatestNews,
-  InfiniteCards,
-  ArticleCard,
-  Spinner,
-  ArticleCardsSkeleton,
-} from '@/app/ui/ui';
-// import dummy from '/public/images/dummy.webp';
+import { InfiniteCards, ArticleCardsSkeleton } from '@/app/ui/ui';
 
 export const metadata = {
   title: 'News App',
@@ -19,9 +10,9 @@ export const metadata = {
 export default async function Home() {
   return (
     <section className="lg:col-span-9">
-      <h2 className="heading mb-6">Populaires</h2>
+      <h1 className="heading mb-6">Populaires</h1>
       <Suspense fallback={<ArticleCardsSkeleton />}>
-        <InfiniteCards keyword={'paris'} />
+        <InfiniteCards keyword={`paris`} sortBy={`relevancy`} />
       </Suspense>
     </section>
   );

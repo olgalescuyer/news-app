@@ -1,41 +1,41 @@
 'use client';
 import { useEffect, useState, Fragment } from 'react';
+import { usePathname } from 'next/navigation';
 import { useInView } from 'react-intersection-observer';
 
 import { ArticleCard, Spinner, ArticleCardsSkeleton } from '@/app/ui/ui';
-import { getPopularArticles } from '@/app/lib/actions';
+import { getArticles } from '@/app/lib/actions';
 
-import { articles } from '@/app/lib/placeholder-data';
+import { useAppContext } from '@/app/providers/AppWrapper';
 
 let page = 2;
 
-const InfiniteCards = ({ keyword }) => {
+const InfiniteCards = ({ keyword, sortBy }) => {
+  const pathname = usePathname();
   const { ref, inView } = useInView();
-  // let data;
-  // setTimeout(() => {
-  //   data = articles;
-  // }, '10000');
+  const { searchTrigger, handleSearchTrigger } = useAppContext();
 
-  // const data = articles;
   const [data, setData] = useState([]);
+  const [message, setMessage] = useState('cccc');
 
   useEffect(() => {
     if (inView) {
-      getPopularArticles(keyword, page)
+      getArticles(keyword, page)
         .then((res) => {
+          // console.log(res);
+
           if (res.status === 'ok') {
             const articles = res.articles;
             setData([...data, ...articles]);
           } else {
             console.log(res.status);
+            console.log(res.message);
           }
         })
         .catch((err) => console.log(err));
     }
     page++;
   }, [inView, data]);
-
-  // console.log(data);
 
   if (data.length !== 0)
     return (
@@ -46,7 +46,7 @@ const InfiniteCards = ({ keyword }) => {
           </Fragment>
         ))}
         <div
-          className="flex justify-center items-center w-full mt-80"
+          className="flex justify-center items-center w-full mt-10"
           ref={ref}
         >
           <Spinner />
@@ -55,13 +55,12 @@ const InfiniteCards = ({ keyword }) => {
     );
 
   return (
-    <div>
-      <ArticleCardsSkeleton />
-
-      <div className="flex justify-center items-center w-full mt-40" ref={ref}>
+    <>
+      <ArticleCardsSkeleton />{' '}
+      <div className="flex justify-center items-center w-full mt-6" ref={ref}>
         <Spinner />
       </div>
-    </div>
+    </>
   );
 };
 
