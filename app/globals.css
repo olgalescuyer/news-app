@@ -20,6 +20,11 @@ body {
     --clip: 0% 0%, 0% 0%, 0% 125%, 0% 100%;
     clip-path: polygon(var(--clip));
   }
+
+  .circle-overlay {
+    --clip-circle: 0%;
+    clip-path: circle(var(--clip-circle));
+  }
 }
 
 @layer components {
