@@ -9,6 +9,7 @@ import {
   Footer,
   MoveOnScroll,
   LatestNewsCardSkeleton,
+  Loader,
 } from '@/app/ui/ui';
 
 export const metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
               </div>
             </main>
 
+            <Loader />
             <Footer />
           </div>
         </AppWrapper>

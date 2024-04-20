@@ -50,6 +50,17 @@ module.exports = {
             transform: 'translateX(100%)',
           },
         },
+        cursor: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            transform: '1',
+          },
+        },
+      },
+      animation: {
+        cursor: 'cursor 1s ease-in-out infinite',
       },
     },
   },

@@ -13,6 +13,7 @@ import ArticleCard from './article-card/article-card';
 import InfiniteCards from './infinite-cards/infinite-cards';
 import Footer from './footer/footer';
 import MoveOnScroll from './move-onscroll/move-onscroll';
+import Loader from './loader/loader';
 import {
   ArticleCardsSkeleton,
   ArticleCardSkeleton,
@@ -40,4 +41,5 @@ export {
   ArticleCardSkeleton,
   LatestNewsCardSkeleton,
   LatestNewsCardsSkeleton,
+  Loader,
 };
