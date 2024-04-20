@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { useGSAP } from '@gsap/react';
@@ -17,6 +17,12 @@ const Loader = () => {
   const a_content = useRef();
   const tl = gsap.timeline({ defaults: { duration: 1 } });
 
+  // setup for state-reactive animation
+  const [mounted, setMonted] = useState(false);
+  useEffect(() => {
+    setMonted(true);
+  }, []);
+
   useGSAP(() => {
     animateText(a_text.current);
     animateBackDrops(
@@ -24,7 +30,7 @@ const Loader = () => {
       a_backdrop_2.current,
       a_container.current
     );
-  });
+  }, [mounted]);
 
   return (
     <div
