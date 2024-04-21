@@ -3,20 +3,20 @@ import { useEffect, useState, Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 import { useInView } from 'react-intersection-observer';
 
-import { ArticleCard, Spinner, ArticleCardsSkeleton } from '@/app/ui/ui';
+import { ArticleCard, Spinner, ArticleCardSkeleton } from '@/app/ui/ui';
 import { getArticles } from '@/app/lib/actions';
 
 import { useAppContext } from '@/app/providers/AppWrapper';
 
 let page = 2;
 
-const InfiniteCards = ({ keyword, sortBy }) => {
+const InfiniteCards = ({ keyword }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
   const { searchTrigger, handleSearchTrigger } = useAppContext();
 
   const [data, setData] = useState([]);
-  const [message, setMessage] = useState('cccc');
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (inView) {
@@ -56,7 +56,7 @@ const InfiniteCards = ({ keyword, sortBy }) => {
 
   return (
     <>
-      <ArticleCardsSkeleton />{' '}
+      <ArticleCardSkeleton />{' '}
       <div className="flex justify-center items-center w-full mt-6" ref={ref}>
         <Spinner />
       </div>

@@ -7,7 +7,7 @@ import Filters from './filters/filters';
 import Search from './search/search';
 import SearchButton from './search-button/search-button';
 import LatestNews from './latest-news/latest-news';
-import NewsImage from './news-image/news-image';
+import ArticleImage from './article-image/article-image';
 import Spinner from './spinner/spinner';
 import ArticleCard from './article-card/article-card';
 import InfiniteCards from './infinite-cards/infinite-cards';
@@ -31,7 +31,7 @@ export {
   Search,
   SearchButton,
   LatestNews,
-  NewsImage,
+  ArticleImage,
   Spinner,
   ArticleCard,
   InfiniteCards,

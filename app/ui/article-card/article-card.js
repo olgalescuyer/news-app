@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { NewsImage } from '@/app/ui/ui';
+import { ArticleImage } from '@/app/ui/ui';
 import { containsMarkdown } from '@/app/lib/utils';
 
 const ArticleCard = ({ article }) => {
@@ -32,7 +32,7 @@ const ArticleCard = ({ article }) => {
       {/* <Link href={article.url}>Lire sur {article.source.name}</Link> */}
       {/* Check for error from image URL */}
       <div className="col-span-2">
-        <NewsImage imageUrl={article.urlToImage} />
+        <ArticleImage imageUrl={article.urlToImage} alt={article.source.name} />
       </div>
 
       <Link
