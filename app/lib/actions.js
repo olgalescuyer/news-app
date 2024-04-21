@@ -15,6 +15,9 @@ export async function getArticles(keyword, page) {
   // page is for infinite scroll feature
 
   try {
+    // Artificially delay a response for demo purposes.
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const response = await fetch(
       `${process.env.API_URL}/everything?q=${keyword}&searchIn=description&from${oneMonthAgo}&language=fr&sortBy=relevancy&pageSize=3&page=${page}`,
       options
