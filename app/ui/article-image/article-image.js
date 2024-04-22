@@ -15,26 +15,20 @@ const ArticleImage = ({ imageUrl, alt }) => {
           className="transition-all duration-500 group-hover/card-popular:scale-105"
         />
       ) : (
-        <figure>
-          {' '}
-          <img
-            // srcSet={`${imageUrl} 480w, ${imageUrl} 800w`}
-            // sizes="(max-width: 600px) 480px,
-            //      800px"
-            src={imageUrl}
-            alt={`Image from source ${alt}`}
-            onError={(e) => {
-              e.target.onerror = null; // Prevent infinite loop
-              e.target.style.display = 'none'; // Hide the image if it fails to load
-            }}
-            style={{
-              objectFit: 'cover',
-              height: '100%',
-              width: '100%',
-            }}
-            className="transition-all duration-500 group-hover/card-popular:scale-105"
-          />
-        </figure>
+        <img
+          src={imageUrl}
+          alt={`Image from source ${alt}`}
+          onError={(e) => {
+            e.target.onerror = null; // Prevent infinite loop
+            e.target.style.display = 'none'; // Hide the image if it fails to load
+          }}
+          style={{
+            objectFit: 'cover',
+            height: '100%',
+            width: '100%',
+          }}
+          className="transition-all duration-500 group-hover/card-popular:scale-105"
+        />
       )}
     </div>
   );
