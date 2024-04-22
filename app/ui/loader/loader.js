@@ -37,14 +37,18 @@ const Loader = () => {
       ref={a_container}
       className="loader fixed top-0 left-0 z-50 w-full h-full flex justify-around items-center bg-primary-dark"
     >
-      <div ref={a_content} className="flex items-end space-x-3 relative  ">
+      <div
+        ref={a_content}
+        className="sm:flex sm:items-end sm:space-x-3 relative "
+      >
         <div
           ref={a_text}
-          className="absolute bottom-0 left-0 text-primary-light capitalize text-xl leading-none -translate-x-full"
+          className="absolute sm:bottom-0 sm:left-0 text-primary-light capitalize text-xl leading-none -translate-y-full sm:-translate-y-0 sm:-translate-x-full pb-2 sm:pb-0"
         >
           Infos en France
         </div>
-        <div className="hor-divider absolute bottom-0 -left-1.5 h-1/3 w-px bg-primary-light animate-cursor"></div>
+        <div className="sm:hidden cursor absolute -top-7 -left-2 "></div>
+        <div className="hidden sm:block cursor absolute bottom-0 -left-1.5"></div>
         <div className="w-40">
           <Logo variant="fill-primary-light" />
         </div>
