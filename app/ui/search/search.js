@@ -22,7 +22,7 @@ const Search = ({ className, intent }) => {
   const pathname = usePathname();
   const { replace, push } = useRouter();
 
-  const { showSearch, handleShowSearch } = useAppContext();
+  const { showSearch, handleShowSearch, handleSearchTrigger } = useAppContext();
 
   const handleSearch = (term) => {
     // console.log(`Searching... ${term}`);
@@ -97,7 +97,13 @@ const Search = ({ className, intent }) => {
               </span>
             </Link>
           ) : (
-            <button className="btn-primary">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleSearchTrigger();
+              }}
+              className="btn-primary"
+            >
               <SearchIcon variant="size-6 md:hidden text-primary-light" />
               <span className="sr-only md:not-sr-only font-semibold text-primary-light">
                 Rechercher

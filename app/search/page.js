@@ -15,7 +15,7 @@ const SearchPage = ({ searchParams }) => {
       </Suspense>
 
       <Suspense fallback={<ArticleCardsSkeleton />}>
-        <InfiniteCards keyword={`${encodeURIComponent(searchParams.query)}`} />
+        <InfiniteCards keyword={`${searchParams.query}`} />
       </Suspense>
     </section>
   );

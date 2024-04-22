@@ -29,8 +29,8 @@ export function AppWrapper({ children }) {
   // searchbar toggle:
   const [searchTrigger, setSearchTrigger] = useState(false);
   const handleSearchTrigger = () => {
-    // console.log('clicked');
-    setSearchTrigger(!showSearch);
+    // console.log('triggered', searchTrigger);
+    setSearchTrigger(!searchTrigger);
   };
 
   // states finally :
