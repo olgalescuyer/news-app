@@ -19,13 +19,25 @@ const InfiniteCards = ({ keyword }) => {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
+    if (searchTrigger) {
+      setData([]);
+    }
+  }, [searchTrigger]);
+
+  useEffect(() => {
     if (inView) {
-      getArticles(keyword, page)
+      // console.log(encodeURIComponent(keyword));
+      getArticles(encodeURIComponent(keyword), page)
         .then((res) => {
           // console.log(res);
 
           if (res.status === 'ok') {
             const articles = res.articles;
+
+            if (searchTrigger) {
+              handleSearchTrigger();
+            }
+
             setData([...data, ...articles]);
           } else {
             console.log(res.status);
@@ -35,9 +47,9 @@ const InfiniteCards = ({ keyword }) => {
         .catch((err) => console.log(err));
     }
     page++;
-  }, [inView, data]);
+  }, [inView, data, searchTrigger]);
 
-  if (data.length !== 0)
+  if (data.length !== 0 && searchTrigger === false)
     return (
       <div className="flex flex-col ">
         {data.map((article, index) => (
