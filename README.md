@@ -5,9 +5,25 @@ Just for comparison, the Business plan offers a lot more firepower 😊
 Best regards
 
 ![News-App-Search](https://github.com/olgalescuyer/news-app/assets/84182327/27b855db-2905-4c62-9c2d-8834281b715a)
+
+
+
+## Development Challenge
+
+The project utilized a modern technology stack, including React, Next.js, and Tailwind CSS, with integration to the News API for real-time content.
+
+Next.js Server Actions: I used server actions to make requests directly from the React client component, allowing for a cleaner structure and better performance. The "Server Actions" in Next.js 14 offer a new approach to server-side logic, simplifying the data flow between server and client. Unlike traditional methods such as API requests or custom routing, Server Actions enable server-side code execution directly from React components.
+
+Using URL search params to manage the search state: To manage search state, I adopted an approach based on searchParams in the URL. This pattern might be new if you're used to handling state on the client side.
+
+useContext: To manage side effects and maintain shared state in the application, I used React's Context API.
+
+Infinite Scroll: To enhance user experience, I integrated an infinite scroll feature, allowing users to load more content as they scroll. This creates a smooth reading experience without interruption.
+
+User Interface with Tailwind CSS: I used Tailwind CSS to design a modern, responsive user interface, ensuring a seamless experience across different devices and screen sizes.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-
 ## Getting Started
 
 First, run the development server:
